@@ -82,3 +82,9 @@ button:hover {
 #reset-button:hover {
   background-color: #c82333;
 }
+
+.edit-btn {
+  color: #007bff;
+  margin-right: 10px;
+  cursor: pointer;
+}
