@@ -1,90 +1,59 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f0f0f0;
-  margin: 0;
+  color: #333;
   padding: 20px;
-  display: flex;
-  justify-content: center;
 }
 
-.container {
-  max-width: 500px;
-  width: 100%;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+h1, h2 {
+  color: #2c3e50;
 }
 
 form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   margin-bottom: 20px;
 }
 
-input[type="text"], input[type="number"] {
-  flex: 1;
+select {
+  width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #28a745;
-  color: white;
+  padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #218838;
+.add-food-btn {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.reset-btn {
+  background-color: #f44336;
+  color: #fff;
 }
 
 #food-list {
-  list-style: none;
-  padding: 0;
-}
-
-#food-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: #fafafa;
-}
-
-.total-calories {
-  font-weight: bold;
-  text-align: center;
   margin-bottom: 20px;
 }
 
-.delete-btn {
-  color: red;
-  cursor: pointer;
-  font-weight: bold;
+#food-list li {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#reset-button {
-  background-color: #dc3545;
-}
-
-#reset-button:hover {
-  background-color: #c82333;
-}
-
-.edit-btn {
-  color: #007bff;
-  margin-right: 10px;
-  cursor: pointer;
+#total-calories {
+  font-size: 24px;
+  color: #e74c3c;
 }

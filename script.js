@@ -1,76 +1,67 @@
-const foodForm = document.getElementById('food-form');
-const foodList = document.getElementById('food-list');
-const totalCaloriesEl = document.getElementById('total-calories');
-const resetButton = document.getElementById('reset-button');
+document.addEventListener('DOMContentLoaded', () => {
+  const foodList = document.getElementById('food-list');
+  const totalCaloriesDisplay = document.getElementById('total-calories');
+  const addFoodForm = document.getElementById('add-food-form');
+  const foodSelect = document.getElementById('food-select');
+  const resetButton = document.getElementById('reset-button');
 
-let foods = JSON.parse(localStorage.getItem('foods')) || [];
-let editIndex = null;
+  let foods = JSON.parse(localStorage.getItem('foods')) || [];
 
-function saveFoods() {
-  localStorage.setItem('foods', JSON.stringify(foods));
-}
+  const foodData = {
+    apple: 96,
+    banana: 89,
+    burger: 250,
+    pizza: 250,
+    salad: 200,
+    sandwich: 300,
+    soup: 150,
+    steak: 320,
+    chicken: 290,
+    fries: 370
+  };
 
-function renderFoods() {
-  foodList.innerHTML = '';
-  let total = 0;
+  function renderFoods() {
+    foodList.innerHTML = '';
+    foods.forEach((food, index) => {
+      const foodItem = document.createElement('li');
+      foodItem.textContent = food.custom ? `${food.name}: ${food.calories} calories` : `${food}: ${foodData[food]} calories`;
+      foodList.appendChild(foodItem);
+    });
+    updateTotalCalories();
+  }
 
-  foods.forEach((item, index) => {
-    total += item.calories;
+  function updateTotalCalories() {
+    const totalCalories = foods.reduce((total, food) => total + (food.custom ? food.calories : foodData[food]), 0);
+    totalCaloriesDisplay.textContent = totalCalories;
+  }
 
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <span>${item.name} - ${item.calories} cal</span>
-      <span>
-        <span class="edit-btn" onclick="editFood(${index})">✏️</span>
-        <span class="delete-btn" onclick="deleteFood(${index})">&times;</span>
-      </span>
-    `;
-    foodList.appendChild(li);
+  function saveFoods() {
+    localStorage.setItem('foods', JSON.stringify(foods));
+  }
+
+  addFoodForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selectedFood = foodSelect.value;
+    if (selectedFood === 'custom') {
+      const customName = prompt("Enter the food name:");
+      const customCalories = prompt("Enter the calories:");
+      if (customName && !isNaN(customCalories)) {
+        foods.push({ name: customName, calories: parseInt(customCalories), custom: true });
+        saveFoods();
+        renderFoods();
+      }
+    } else if (selectedFood) {
+      foods.push(selectedFood);
+      saveFoods();
+      renderFoods();
+    }
   });
 
-  totalCaloriesEl.textContent = total;
-}
-
-function deleteFood(index) {
-  foods.splice(index, 1);
-  saveFoods();
-  renderFoods();
-}
-
-function editFood(index) {
-  const food = foods[index];
-  document.getElementById('food-name').value = food.name;
-  document.getElementById('calories').value = food.calories;
-  editIndex = index;
-}
-
-foodForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('food-name').value.trim();
-  const calories = parseInt(document.getElementById('calories').value);
-
-  if (name && !isNaN(calories) && calories > 0) {
-    if (editIndex !== null) {
-      foods[editIndex] = { name, calories };
-      editIndex = null;
-    } else {
-      foods.push({ name, calories });
-    }
-
-    saveFoods();
-    renderFoods();
-    foodForm.reset();
-  } else {
-    alert('Please enter a valid food name and calorie count.');
-  }
-});
-
-resetButton.addEventListener('click', () => {
-  if (confirm('Are you sure you want to reset the calorie list?')) {
+  resetButton.addEventListener('click', () => {
     foods = [];
     saveFoods();
     renderFoods();
-  }
-});
+  });
 
-renderFoods();
+  renderFoods();
+});

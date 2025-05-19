@@ -7,19 +7,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Calorie Counter</h1>
-    <form id="food-form">
-      <input type="text" id="food-name" placeholder="Food Name" required>
-      <input type="number" id="calories" placeholder="Calories" required>
-      <button type="submit">Add</button>
-    </form>
-    <ul id="food-list"></ul>
-    <div class="total-calories">
-      Total Calories: <span id="total-calories">0</span>
-    </div>
-    <button id="reset-button">Reset Day</button>
+  <h1 class="text-2xl font-bold mb-4">Calorie Counter</h1>
+  <form id="add-food-form" class="mb-4">
+    <select id="food-select" class="block border border-gray-300 p-2 rounded-md mb-2">
+      <option value="">Select a food item</option>
+      <option value="apple">Apple (96 calories)</option>
+      <option value="banana">Banana (89 calories)</option>
+      <option value="burger">Burger (250 calories)</option>
+      <option value="pizza">Pizza (250 calories)</option>
+      <option value="salad">Salad (200 calories)</option>
+      <option value="sandwich">Sandwich (300 calories)</option>
+      <option value="soup">Soup (150 calories)</option>
+      <option value="steak">Steak (320 calories)</option>
+      <option value="chicken">Chicken Breast (290 calories)</option>
+      <option value="fries">French Fries (370 calories)</option>
+      <option value="custom">Custom Food</option>
+    </select>
+    <button type="submit" class="add-food-btn">Add Food</button>
+  </form>
+  <h2 class="text-xl font-bold mb-2">Today's Foods</h2>
+  <ul id="food-list" class="list-none p-0">
+    <!-- Food items will be added here dynamically -->
+  </ul>
+  <div class="mt-4">
+    <h2 class="text-xl font-bold mb-2">Total Calories</h2>
+    <p id="total-calories" class="text-2xl font-bold">0</p>
   </div>
+  <button id="reset-button" class="reset-btn">Reset</button>
   <script src="script.js"></script>
 </body>
 </html>
