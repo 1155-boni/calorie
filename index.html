@@ -5,32 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Calorie Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex items-center justify-center py-10">
-    <div class="container mx-auto p-6 bg-white rounded-xl shadow-2xl max-w-lg w-full">
-        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8">💪 Calorie Tracker</h1>
+    </head>
+<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto p-4 sm:p-6 bg-white rounded-xl shadow-2xl w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-800 mb-6 sm:mb-8">💪 Calorie Tracker</h1>
 
-        <form id="calorie-form" class="bg-gray-50 p-6 rounded-lg shadow-inner mb-6 border border-gray-200">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4">Add New Food</h2>
-            <div class="mb-6"> <label for="food-name" class="block text-gray-700 text-sm font-bold mb-2">Food Item:</label>
-                <input type="text" id="food-name" class="shadow-sm appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" placeholder="e.g., Grilled Chicken, 1 serving" required>
+        <form id="calorie-form" class="bg-gray-50 p-5 sm:p-6 rounded-lg shadow-inner mb-6 border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-4">Add New Food</h2>
+            <div class="mb-6">
+                <label for="food-name" class="block text-gray-700 text-sm font-bold mb-2">Food Item:</label>
+                <input type="text" id="food-name" class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 text-base sm:text-lg" placeholder="e.g., Grilled Chicken, 1 serving" required>
             </div>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-200">
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 sm:py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-200 text-lg">
                 Add Food
             </button>
         </form>
 
-        <div class="bg-blue-50 p-6 rounded-lg shadow-md mb-6 border border-blue-200">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Total Calories Consumed:</h2>
-            <p id="total-calories" class="text-5xl font-extrabold text-green-600 mb-6 text-center">0</p>
-            <button id="reset-button" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-200">
+        <div class="bg-blue-50 p-5 sm:p-6 rounded-lg shadow-md mb-6 border border-blue-200">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800">Total Calories Consumed:</h2>
+            <p id="total-calories" class="text-4xl sm:text-5xl font-extrabold text-green-600 mb-6 text-center">0</p>
+            <button id="reset-button" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 sm:py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transform hover:scale-105 transition duration-200 text-lg">
                 Reset Daily Calories
             </button>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Your Meals:</h2>
+        <div class="bg-white p-5 sm:p-6 rounded-lg shadow-md border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800">Your Meals:</h2>
             <ul id="food-list" class="divide-y divide-gray-200">
                 <li class="py-3 text-gray-500 text-center italic" id="empty-list-message">No food items added yet.</li>
             </ul>
